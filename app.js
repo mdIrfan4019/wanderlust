@@ -30,7 +30,7 @@ import { error } from "console";
 app.use(methodOverride('_method'));
 
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_ATLAS_URI;
 
 main().then(() => {
     console.log('Connected to MongoDB Atlas');
@@ -40,7 +40,7 @@ main().then(() => {
 
 async function main() {
     try {
-        await mongoose.connect(MONGO_URI);
+        await mongoose.connect(MONGO_ATLAS_URI);
         console.log('MongoDB Atlas connected');
     } catch (error) {
         console.error('MongoDB connection error:', error);
