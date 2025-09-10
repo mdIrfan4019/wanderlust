@@ -134,15 +134,15 @@ import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import ejsMate from 'ejs-mate';
-import ExpressError from './utils/ExpressError.js';
-import listingRoutes from './routes/listing.js' 
-import reviewRoutes from './routes/review.js' 
+import ExpressError from '../utils/ExpressError.js';
+import listingRoutes from '../routes/listing.js' 
+import reviewRoutes from '../routes/review.js' 
 import session from 'express-session';
 import flash from 'connect-flash'
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-import { User } from './models/user.js';
-import userRoutes from './routes/user.js';
+import { User } from '../models/user.js';
+import userRoutes from '../routes/user.js';
 import methodOverride from 'method-override';
 
 
@@ -234,3 +234,5 @@ const PORT=process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+export default app;
