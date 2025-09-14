@@ -1,0 +1,59 @@
+[33mcommit 325c00922d5a912da617783948ced2423eea3d8a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Sun Sep 14 11:04:46 2025 +0530
+
+    home page added
+
+[33mcommit 20cb890ce768a1913b12b9acd020e61e28b131a6[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 18:23:47 2025 +0530
+
+    return to previous code
+
+[33mcommit d3ac1f374089f87590db81cd73a20d56682ee912[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 17:37:18 2025 +0530
+
+    entry point configured
+
+[33mcommit aee19104b0c08dda617ee0fe3778b2211e3ecc0d[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 17:27:34 2025 +0530
+
+    vercel congiguration setup
+
+[33mcommit 7cc38adbc100f1e84a6bc67c3a251be120de9f89[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 17:12:43 2025 +0530
+
+    app.js reinitialized
+
+[33mcommit 127b9782d8d936ce930ac54dd7f2f63196b98823[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 17:08:11 2025 +0530
+
+    mongo_uri changed
+
+[33mcommit 4d9afe6531b0be3fd9ff22a1bc9c3793c07b6808[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 17:01:29 2025 +0530
+
+    atlas url name changed
+
+[33mcommit 358e8d69f764fb90c5f711f6ebd2a5784cbecea4[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 16:38:06 2025 +0530
+
+    Fix: Finalizing dependency downgrade for Cloudinary
+
+[33mcommit 39eacd1bf4de15f355b7bd8780bbde07a9d0cca8[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 16:30:08 2025 +0530
+
+    Fix: Downgraded cloudinary to resolve dependency conflict
+
+[33mcommit 092b7cf4c865bb0c8b426123b53d3a72dc8c4b1a[m
+Author: Md Irfan <mia2823457@gmail.com>
+Date:   Wed Sep 10 15:58:16 2025 +0530
+
+    wanderlust project completed
