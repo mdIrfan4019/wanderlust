@@ -211,7 +211,7 @@ async function dbConnect() {
 }
 
 // Ensure the database is connected before starting the server
-dbConnect();
+await dbConnect();
 
 //router
 app.use('/listings',listingRoutes);
