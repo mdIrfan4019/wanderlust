@@ -1,57 +1,91 @@
 <% layout('layouts/boilerplate') %>
 
 <style>
-        
+    .welcome-container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin: 100px;
+        max-width: 800px; /* Limits the max width on large screens */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center; /* Center aligns the content */
+    }
+    h1 {
+        color: #5a5a5a;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #666;
+    }
+    .cta-buttons {
+        margin-top: 25px;
+        display: flex; /* Use flexbox for button layout */
+        flex-direction: column; /* Stacks buttons on smaller screens */
+        align-items: center; /* Centers the buttons */
+        gap: 15px; /* Adds space between the buttons */
+    }
+    .cta-buttons a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #fe424d;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        width: 100%; /* Makes buttons full-width on small screens */
+        max-width: 250px; /* Limits the button width on larger screens */
+    }
+    .cta-buttons a:hover {
+        background-color: #fe424d;
+    }
+    
+    /* Responsive styles using media queries */
+    @media (max-width: 768px) {
         .welcome-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 100px;
+            margin: 20px; /* Smaller margin on smaller screens */
+            padding: 20px; /* Smaller padding */
         }
         h1 {
-            color: #5a5a5a;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2rem; /* Smaller font size for headings */
         }
         p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #666;
+            font-size: 1rem; /* Smaller font size for paragraphs */
         }
+    }
+    
+    @media (min-width: 769px) {
         .cta-buttons {
-            margin-top: 25px;
+            flex-direction: row; /* Arranges buttons side-by-side on larger screens */
+            justify-content: center; /* Centers the row of buttons */
+            gap: 20px;
         }
         .cta-buttons a {
-            text-decoration: none;
-            color: #fff;
-            background-color: #fe424d;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin: 0 10px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            width: auto; /* Buttons return to their default width */
         }
-        .cta-buttons a:hover {
-            background-color: #fe424d;
-        }
-    </style>
+    }
+</style>
+
 <div class="welcome-container">
-        <% if (currUser && currUser.username) { %>
-            <h1>Welcome, <%= currUser.username %>!</h1>
-            <p>We're so glad to have you back. What would you like to do today?</p>
+    <% if (currUser && currUser.username) { %>
+        <h1>Welcome, <%= currUser.username %>!</h1>
+        <p>We're so glad to have you back. What would you like to do today?</p>
+    <% } else { %>
+        <h1>Welcome to Our Wanderlust!</h1>
+        <p>Discover amazing things and explore our community. Join us to get started.</p>
+    <% } %>
+    
+    <div class="cta-buttons">
+        <% if (!currUser) { %>
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
         <% } else { %>
-            <h1>Welcome to Our Wanderlust!</h1>
-            <p>Discover amazing things and explore our community. Join us to get started.</p>
+            <a href="/listings">Explore</a>
+            <a href="/listings/new">Wanderlust your home</a>
         <% } %>
-        
-        <div class="cta-buttons">
-            <% if (!currUser) { %>
-                <a href="/login">Log In</a>
-                <a href="/signup">Sign Up</a>
-            <% } else { %>
-                <a href="/listings">Explore </a>
-                <a href="/listings/new">Wanderlust your home</a>
-            <% } %>
-        </div>
     </div>
+</div>
