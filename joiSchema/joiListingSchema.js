@@ -21,8 +21,24 @@ const listingSchema = Joi.object({
   location: Joi.string()
      .min(2)
      .max(100)
-     .required()
+     .required(),
+      category: Joi.string()
+    .valid(
+      "Trending",
+      "Rooms",
+      "Iconic Cities",
+      "Castles",
+      "Mountains",
+      "Amazing Pools",
+      "Campings",
+      "Farms",
+      "Arctic",
+      "Domes",
+      "Boats"
+    )
+    .required(),
 }).required(),
+
 });
 
 export default listingSchema;

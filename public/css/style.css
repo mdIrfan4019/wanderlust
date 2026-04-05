@@ -1,4 +1,6 @@
 body {
+  margin: 0;   /* 🔥 ADD THIS */
+  padding: 0;
   font-family: "Plus Jakarta Sans", sans-serif !important;
   display: flex;
   flex-direction: column;
@@ -49,7 +51,7 @@ body {
   .search-input {
     min-width: 350px;
   }
-}
+} 
 
 /* Wrapper */
 .search-box {
@@ -66,7 +68,7 @@ body {
   width: 100%;
   outline: none;
   transition: 0.3s;
-}
+} 
 
 /* Focus effect */
 .search-input:focus {
@@ -75,7 +77,7 @@ body {
 }
 
 /* Icon button inside input */
-.search-icon-btn {
+ .search-icon-btn {
   position: absolute;
   right: 5px;
   background-color: #fe424d;
@@ -88,7 +90,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
+}  
 
 /* Hover effect */
 .search-icon-btn:hover {
@@ -261,4 +263,91 @@ body {
 
 .reset-btn:hover {
  background-color: #e63946 !important;
+}
+
+
+select.form-control {
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+/* footer */
+.f-info {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+   height: 20vh; 
+} 
+
+.f-info {
+  padding: 1rem 0;
+}
+
+.alert {
+  max-width: 400px;
+  /* margin: ; */
+  
+  border-radius: 10px;
+}
+
+.form-control:focus {
+  border-color: #fe424d !important;
+  box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25) !important;
+}
+.form-control {
+  transition: all 0.2s ease;
+}
+
+/* Toggle switch custom color */
+.form-check-input:checked {
+  background-color: #fe424d !important;
+  border-color: #fe424d !important;
+}
+
+/* Optional: focus ring also red */
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25) !important;
+}
+
+.form-check-input {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for category filters */
+.filter:hover {
+  color: #fe424d !important;
+}
+
+/* Icon color on hover */
+.filter:hover i {
+  color: #fe424d !important;
+}
+
+/* Text color on hover */
+.filter:hover p {
+  color: #fe424d !important;
+}
+
+.filter i,
+.filter p {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.filter:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar hover effect */
+.nav-link:hover {
+  color: #fe424d !important;
+}
+
+/* Optional: smooth transition */
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+.navbar-brand:hover .fa-compass {
+  transform: rotate(15deg);
+  transition: transform 0.2s ease;
 }
