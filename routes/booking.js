@@ -8,6 +8,16 @@ import { isLoggedIn, isUser } from "../middleware.js";
 // CREATE BOOKING
 router.post("/", isLoggedIn,isUser, async (req, res) => {
   const { listingId, checkIn, checkOut } = req.body;
+    // 🔥 CHECK: already booked or not
+  const existingBooking = await Booking.findOne({
+    listing: listingId,
+    user: req.user._id
+  });
+
+  if (existingBooking) {
+    req.flash("error", "You have already booked this listing!");
+    return res.redirect(`/listings/${listingId}`);
+  }
 
   const listing = await Listing.findById(listingId);
 

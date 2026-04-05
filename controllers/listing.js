@@ -1,14 +1,5 @@
 import {Listing} from "../models/listing.js";
-
-
-
-
-
-// Get all listings
-// export const index = async (req, res) => {
-//     const allListings = await Listing.find({});
-//     res.render("listings/index.ejs", { allListings });
-// };
+// import { Booking } from "../models/booking.js";
 
 export const index = async (req, res) => {
     let { location, price, category } = req.query;
@@ -41,20 +32,33 @@ export const renderNewForm =(req, res) => {
 }
 
 //show individual listings
-export const showListing =async (req, res) => {
-    const { id } = req.params;
-    const listing = await Listing.findById(id)
-    .populate({path:"reviews",populate :{
-        path:"author",
-    }})
+import { Booking } from "../models/booking.js";
+
+export const showListing = async (req, res) => {
+  const { id } = req.params;
+
+  const listing = await Listing.findById(id)
+    .populate({ path: "reviews", populate: { path: "author" } })
     .populate("owner");
-    if(!listing){
-        req.flash("error","Listing you requested for does not exist!");
-       return res.redirect('/listings');
-    }
-    // console.log(listing)
-    res.render("listings/show.ejs", { listing });
-}
+
+  if (!listing) {
+    req.flash("error", "Listing does not exist!");
+    return res.redirect("/listings");
+  }
+
+  let alreadyBooked = false;
+
+  if (req.user) {
+    const booking = await Booking.findOne({
+      listing: id,
+      user: req.user._id
+    });
+
+    if (booking) alreadyBooked = true;
+  }
+
+  res.render("listings/show.ejs", { listing, alreadyBooked });
+};
 
 //create listing
 export const createListing =async (req, res) => {    
