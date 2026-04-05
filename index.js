@@ -143,6 +143,8 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import { User } from './models/user.js';
 import userRoutes from './routes/user.js';
+import bookingRoutes from "./routes/booking.js";
+
 import methodOverride from 'method-override';
 
 
@@ -217,6 +219,7 @@ await dbConnect();
 app.use('/listings',listingRoutes);
 app.use('/listings/:id/reviews',reviewRoutes);
 app.use('/',userRoutes);
+app.use("/bookings", bookingRoutes);
 
 app.get('/', (req, res) => {
     res.render('home.ejs');

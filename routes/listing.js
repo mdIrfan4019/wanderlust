@@ -10,7 +10,7 @@ import {
     updateListing,
     deleteListing,
 } from "../controllers/listing.js";
-import {isLoggedIn,isOwner,validateListing} from '../middleware.js'
+import {isLister, isLoggedIn,isOwner,validateListing} from '../middleware.js'
 
 import multer from "multer";
 import { storage, cloudinary } from "../cloudConfig.js";
@@ -22,6 +22,7 @@ router
 .get(wrapAsync(index))//index route
 .post(
     isLoggedIn, 
+    isLister,
     upload.single('image'), 
     validateListing,
     wrapAsync(createListing)
@@ -39,6 +40,7 @@ router
 .get(wrapAsync(showListing))//show route
 .put(
     isLoggedIn,
+    isLister,
     isOwner("update"),
     upload.single('image'), 
     validateListing, 
@@ -46,6 +48,7 @@ router
 )//update route
 .delete(
     isLoggedIn, 
+    isLister,
     isOwner("delete"),
     wrapAsync(deleteListing)
 );//delete route

@@ -82,4 +82,18 @@ export const isReviewAuthor = async (req, res, next) => {
     };
 
 
+export const isLister = (req, res, next) => {
+  if (req.user.role !== "lister") {
+    req.flash("error", "Only listers can perform this action!");
+    return res.redirect("/listings");
+  }
+  next();
+};
 
+export const isUser = (req, res, next) => {
+  if (req.user.role !== "user") {
+    req.flash("error", "Only users can perform this action!");
+    return res.redirect("/listings");
+  }
+  next();
+};

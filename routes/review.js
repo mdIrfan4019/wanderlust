@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router= Router({mergeParams:true});
-import { isLoggedIn, validateReview ,isReviewAuthor} from "../middleware.js";
+import { isLoggedIn, validateReview ,isReviewAuthor, isUser} from "../middleware.js";
 import wrapAsync from '../utils/wrapAsync.js';
 import {
     createReview,
@@ -13,7 +13,7 @@ import {
 
 //Reviews
 //post route
-router.post("/",isLoggedIn, validateReview, wrapAsync(createReview)
+router.post("/",isLoggedIn,isUser, validateReview, wrapAsync(createReview)
 );
 
 //delete route for reviews
