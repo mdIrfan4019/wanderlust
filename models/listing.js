@@ -31,7 +31,23 @@ image: {
   owner:{
     type:Schema.Types.ObjectId,
     ref:"User"
-  }
+  },
+  category: {
+  type: String,
+  enum: [
+    "Trending",
+    "Rooms",
+    "Iconic Cities",
+    "Castles",
+    "Mountains",
+    "Amazing Pools",
+    "Campings",
+    "Farms",
+    "Arctic",
+    "Domes",
+    "Boats"
+  ]
+}
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {

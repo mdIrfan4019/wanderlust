@@ -5,9 +5,34 @@ import {Listing} from "../models/listing.js";
 
 
 // Get all listings
+// export const index = async (req, res) => {
+//     const allListings = await Listing.find({});
+//     res.render("listings/index.ejs", { allListings });
+// };
+
 export const index = async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings });
+    let { location, price, category } = req.query;
+
+    let filter = {};
+
+    // Location filter
+    if (location) {
+        filter.location = { $regex: location, $options: "i" };
+    }
+
+    // Price filter
+    if (price) {
+        filter.price = { $lte: Number(price) };
+    }
+
+    // Category filter
+    if (category) {
+        filter.category = category;
+    }
+
+    const allListings = await Listing.find(filter);
+
+    res.render("listings/index.ejs", { allListings, request: req });
 };
 
 //new 

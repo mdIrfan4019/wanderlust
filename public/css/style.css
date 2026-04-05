@@ -12,6 +12,97 @@ body {
     height: 5rem;
     background-color: white;
 }
+/* Prevent overlap with content */
+.navbar-collapse {
+  background-color: white;
+  padding: 1rem;
+}
+
+/* Add breathing space inside navbar */
+.navbar .container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  form.d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input {
+  min-width: 250px;
+}
+
+}
+
+@media (min-width: 992px) {
+  .search-input {
+    min-width: 350px;
+  }
+}
+
+/* Wrapper */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Input styling */
+.search-input {
+  border-radius: 50px;
+  padding: 0.6rem 3rem 0.6rem 1rem;
+  border: 1px solid #ddd;
+  width: 100%;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Focus effect */
+.search-input:focus {
+  border-color: #fe424d;
+  box-shadow: 0 0 5px rgba(254, 66, 77, 0.4);
+}
+
+/* Icon button inside input */
+.search-icon-btn {
+  position: absolute;
+  right: 5px;
+  background-color: #fe424d;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.search-icon-btn:hover {
+  background-color: #e63946;
+}
+
+
+/* Add spacing between navbar and content */
+.container {
+  margin-top: 1rem;
+}
+.navbar-collapse {
+  width: 100%;
+}
 
 .fa-compass{
    color:#fe424d; 
@@ -146,4 +237,28 @@ body {
   .map-container {
     height: 250px;
   }
+}
+
+
+
+/* Apply button */
+.apply-btn {
+  background-color: #fe424d !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.apply-btn:hover {
+  background-color: #e63946 !important;
+}
+
+/* Reset button */
+.reset-btn {
+  background-color: #fe424d !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.reset-btn:hover {
+ background-color: #e63946 !important;
 }
