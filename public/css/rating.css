@@ -195,3 +195,22 @@
   -webkit-transition: background-position .7s;
   transition: background-position .7s;
 }
+
+
+.starability-result {
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* Prevent overflow */
+.card-text {
+  word-wrap: break-word;
+}
+
+/* Reduce star size on small screens */
+@media (max-width: 480px) {
+  .starability-result {
+    font-size: 12px;
+  }
+}
+
