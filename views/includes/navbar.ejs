@@ -45,6 +45,9 @@
     <% if(currUser && currUser.role === "lister") { %>
   <a class="nav-link" href="/listings/new">Wanderlust your home</a>
 <% } %>
+<% if(currUser && currUser.role === "user") { %>
+  <a class="nav-link" href="/bookings/my">My Bookings</a>
+<% } %>
 
     <% if(!currUser){ %>
       <a class="nav-link" href="/signup"><b>Sign up</b></a>

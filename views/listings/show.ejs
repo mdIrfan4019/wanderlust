@@ -62,12 +62,15 @@
 
                                         <div class="mb-2">
                                             <label>Check-in</label>
-                                            <input type="date" name="checkIn" class="form-control" required>
+                                            <input type="date" name="checkIn"   min="<%= new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().split('T')[0] %>" 
+                                           class="form-control" required>
                                         </div>
 
                                         <div class="mb-2">
                                             <label>Check-out</label>
-                                            <input type="date" name="checkOut" class="form-control" required>
+                                            <input type="date" name="checkOut" 
+                                              min="<%= new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().split('T')[0] %>" 
+                                            class="form-control" required>
                                         </div>
 
                                         <button class="btn add-btn mt-2 w-100">Reserve</button>
@@ -75,6 +78,11 @@
                                 </div>
 
                                 <% } %>
+                                <% if(error && error.includes("already booked")) { %>
+  <div class="alert alert-danger text-center">
+    Selected dates are not available 📅
+  </div>
+<% } %>
 
                                     <% } %>
 
@@ -191,18 +199,27 @@
     </script>
 
 
-    <script>
-        const checkIn = document.querySelector("[name='checkIn']");
-        const checkOut = document.querySelector("[name='checkOut']");
+ <script>
+const checkIn = document.querySelector("[name='checkIn']");
+const checkOut = document.querySelector("[name='checkOut']");
 
-        checkOut.addEventListener("change", () => {
-            const d1 = new Date(checkIn.value);
-            const d2 = new Date(checkOut.value);
+// 🔹 Prevent selecting checkout before check-in
+checkIn.addEventListener("change", () => {
+  checkOut.min = checkIn.value;
+});
 
-            const days = (d2 - d1) / (1000 * 60 * 60 * 24);
+// 🔹 Calculate total days
+checkOut.addEventListener("change", () => {
+  const d1 = new Date(checkIn.value);
+  const d2 = new Date(checkOut.value);
 
-            if (days > 0) {
-                alert("Total stay: " + days + " days");
-            }
-        });
-    </script>
+  const days = (d2 - d1) / (1000 * 60 * 60 * 24);
+
+  if (days > 0) {
+    alert("Total stay: " + days + " days");
+  } else {
+    alert("Invalid date selection!");
+    checkOut.value = "";
+  }
+});
+</script>
