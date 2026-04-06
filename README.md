@@ -75,7 +75,7 @@ apna_project/
    ```bash
    npm run dev
    ```
-   The application will be available at `http://localhost:8080`.
+   The application will be available at [Wonderlust](https://wanderlust-ruby-six.vercel.app).
 
 ## 🤝 Contributing
 
